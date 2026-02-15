@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/19fkqTO-sbTpESMUHdIR9w49HuXETtJqc
 """
 
-# !pip install streamlit pyngrok xgboost
+!pip install streamlit pyngrok xgboost
 
 import streamlit as st
 from model.logistic_regression import run_model as lr
