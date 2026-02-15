@@ -39,5 +39,3 @@ if st.button("Run Model"):
 
     st.subheader("Confusion Matrix")
     st.write(results["Confusion Matrix"])
-
-"""# New Section"""
