@@ -27,7 +27,7 @@ evaluation metrics.
 
 ------------------------------------------------------------------------
 
-## 2️⃣ Dataset Description
+## 1️⃣ Dataset Description
 
 **Dataset Name:** Breast Cancer Dataset
 
@@ -51,7 +51,7 @@ This dataset satisfies the assignment requirements:
 
 ------------------------------------------------------------------------
 
-## 3️⃣ Models Implemented
+## 2️⃣ Models Implemented And Evaluation Metrics
 
 1.  Logistic Regression
 2.  Decision Tree Classifier
@@ -62,9 +62,7 @@ This dataset satisfies the assignment requirements:
 
 All models were trained and evaluated using an 80-20 train-test split.
 
-------------------------------------------------------------------------
-
-## 4️⃣ Evaluation Metrics
+## Evaluation Metrics
 
 Each model was evaluated using:
 
@@ -77,7 +75,26 @@ Each model was evaluated using:
 
 ------------------------------------------------------------------------
 
-## 5️⃣ Model Performance Comparison
+## 3️⃣ Project Structure
+
+    project-folder/
+    │-- app.py
+    │-- requirements.txt
+    │-- README.md
+    │-- breast-cancer.csv
+    │
+    └── model/
+        │-- data_preprocessing.py
+        │-- logistic_regression.py
+        │-- decision_tree.py
+        │-- knn.py
+        │-- naive_bayes.py
+        │-- random_forest.py
+        │-- xgboost_model.py
+
+------------------------------------------------------------------------
+
+## 4️⃣ Model Performance Comparison
 
   ML Model              Accuracy   AUC    Precision   Recall   F1 Score   MCC
   --------------------- ---------- ------ ----------- -------- ---------- ------
@@ -91,7 +108,7 @@ Each model was evaluated using:
 
 ------------------------------------------------------------------------
 
-## 6️⃣ Observations
+## 5️⃣ Observations
 
 -   Logistic Regression - Achieved the highest overall performance with the best Accuracy (0.97) and MCC (0.94). High AUC (0.99) indicates excellent class  separability. The strong performance suggests the dataset is nearly linearly separable.
 -   Decision Tree - Performed slightly lower than Logistic Regression. Although interpretable, it may slightly overfit or underfit compared to ensemble models. Moderate MCC (0.88) indicates good but not optimal correlation.
@@ -102,7 +119,7 @@ Each model was evaluated using:
 
 ------------------------------------------------------------------------
 
-## 9️⃣ Conclusion
+## 6️⃣ Conclusion
 
 Based on the evaluation metrics (Accuracy, AUC, Precision, Recall, F1 Score, and MCC):
 
