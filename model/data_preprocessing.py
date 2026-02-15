@@ -1,13 +1,25 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-
 def load_and_preprocess(data_path):
 
-    df = pd.read_csv(data_path)
+    if isinstance(data_path, pd.DataFrame):
+        df = data_path.copy()
+    else:
+        df = pd.read_csv(data_path)
 
     df = df.drop(columns=["id"], errors="ignore")
-    df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
+
+    # Clean diagnosis column
+    df["diagnosis"] = df["diagnosis"].astype(str).str.strip()
+
+    if set(df["diagnosis"].unique()) <= {"M", "B"}:
+        df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
+    else:
+        df["diagnosis"] = pd.to_numeric(df["diagnosis"], errors="coerce")
+
+    # Drop invalid rows
+    df = df.dropna(subset=["diagnosis"])
 
     X = df.drop("diagnosis", axis=1)
     y = df["diagnosis"]
