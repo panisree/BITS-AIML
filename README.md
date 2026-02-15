@@ -1,12 +1,12 @@
 # Breast Cancer Classification -- Machine Learning Assignment 2
 
 **Course:** Machine Learning
-**Program:** M.Tech (AIML/DSE)
+**Program:** M.Tech
 **Assignment:** Assignment -- 2
 **BITS-ID:** 2025AB05070
 ------------------------------------------------------------------------
 
-## 1️⃣ Problem Statement
+## Problem Statement
 
 The objective of this project is to build and deploy multiple machine
 learning classification models to predict whether a breast tumor is
