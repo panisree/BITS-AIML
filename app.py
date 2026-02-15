@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from model.logistic_regression import run_model as lr
 from model.decision_tree import run_model as dt
 from model.knn import run_model as knn
