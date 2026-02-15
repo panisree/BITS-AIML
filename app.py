@@ -15,20 +15,20 @@ if uploaded_file is None:
     st.warning("Upload dataset to start.")
     st.stop()
 
-df = pd.read_csv(uploaded_file)
+data_path = pd.read_csv(uploaded_file)
 
-if "diagnosis" not in df.columns:
+if "diagnosis" not in data_path.columns:
     st.error("Dataset must contain 'diagnosis' column.")
     st.stop()
 
-if "id" in df.columns:
-    df = df.drop(columns=["id"])
+if "id" in data_path.columns:
+    data_path = data_path.drop(columns=["id"])
 
-if df["diagnosis"].dtype == "object":
-    df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
+if data_path["diagnosis"].dtype == "object":
+    data_path["diagnosis"] = data_path["diagnosis"].map({"M": 1, "B": 0})
 
-X = df.drop("diagnosis", axis=1)
-y = df["diagnosis"]
+X = data_path.drop("diagnosis", axis=1)
+y = data_path["diagnosis"]
 
 model_choice = st.selectbox(
     "Select Model",
