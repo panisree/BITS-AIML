@@ -6,9 +6,29 @@ from model.naive_bayes import run_model as nb
 from model.random_forest import run_model as rf
 from model.xgboost_model import run_model as xgb
 
-st.title("Breast Cancer Classification - ML Assignment 2")
+st.title("Breast Cancer Classification App")
 
-data_path = "breast-cancer.csv"
+# Upload dataset
+uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
+
+if uploaded_file is None:
+    st.warning("Upload dataset to start.")
+    st.stop()
+
+df = pd.read_csv(uploaded_file)
+
+if "diagnosis" not in df.columns:
+    st.error("Dataset must contain 'diagnosis' column.")
+    st.stop()
+
+if "id" in df.columns:
+    df = df.drop(columns=["id"])
+
+if df["diagnosis"].dtype == "object":
+    df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
+
+X = df.drop("diagnosis", axis=1)
+y = df["diagnosis"]
 
 model_choice = st.selectbox(
     "Select Model",
